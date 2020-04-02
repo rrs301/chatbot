@@ -21,4 +21,14 @@ export class APIServiceService {
     return this.http.get("http://playbox99.com/chatbot/getChoice.php?userMsg="+choice);
     
   }
+
+  getWelcomeMsg()
+  {
+    return this.http.get("http://infobot.playbox99.com/script/getWelcomeMsg.php")
+  }
+  getChoiceReplyPro(choice:string)
+  {
+    return this.http.get("http://infobot.playbox99.com/script/getChoiceReply.php?sid="+choice);
+    
+  }
 }

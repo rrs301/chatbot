@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChatBoxComponent } from './chat-box/chat-box.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { AppLaunchPageComponent } from './app-launch-page/app-launch-page.component';
+import { ChatUiProComponent } from './chat-ui-pro/chat-ui-pro.component';
 @NgModule({
   declarations: [
     AppComponent,
     ChatBoxComponent,
     TitleBarComponent,
     AppLaunchPageComponent,
+    ChatUiProComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { AppLaunchPageComponent } from './app-launch-page/app-launch-page.compon
   exports:[
     ChatBoxComponent,
     TitleBarComponent,
-    AppLaunchPageComponent
+    AppLaunchPageComponent,
+    ChatUiProComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

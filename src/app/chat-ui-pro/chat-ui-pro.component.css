@@ -33,9 +33,10 @@
     max-width: 700px;
     padding: 14px 18px;
   margin: 6px 8px;
-    background-color: #6C8EA4;
+    background-color: #f6f6f6;
     border-radius: 16px 16px 16px 0;
-    border: 1px solid #54788e;
+    border: 1px solid #dfdddd;
+    color: black;
   
 }
 .own {

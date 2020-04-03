@@ -7,7 +7,7 @@ import { ChatUiProComponent } from './chat-ui-pro/chat-ui-pro.component';
 const routes: Routes = [
   {path:"chatbox",component:ChatBoxComponent},
   {path:"home",component:AppLaunchPageComponent},
-  {path:"chatBoxPro",component:ChatUiProComponent},
+  {path:"chatboxpro",component:ChatUiProComponent},
   {path:"",component:AppLaunchPageComponent}
 ];
 

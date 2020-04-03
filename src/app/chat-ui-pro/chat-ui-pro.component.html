@@ -1,7 +1,7 @@
 <app-title-bar></app-title-bar>
 <div style="margin-bottom: 60px;font-size: 17px;font-family: raleway;">
   <ng-container #scrollMe id="temp" style="overflow-y: scroll;   position: absolute; " >
-  <div *ngFor="let msg of chatMsgList" >
+  <div *ngFor="let msg of chatMsgList;let i=index" >
   <div class="bubbleWrapper" *ngIf="msg.sender==='bot'">
     <div class="inlineContainer">
       <img class="inlineIcon" src="https://image.flaticon.com/icons/svg/2741/2741111.svg">
@@ -9,17 +9,24 @@
         <div  style="white-space: pre-line;position: relative;
         word-break: break-all;">{{msg.msg}}</div>
       </div>
-
-      <div class="otherBubble other" *ngIf="msg.type==='list'">
-        <ul class="uk-list uk-list-large uk-list-divider">
-          <li>List item 1</li>
-         
-      </ul>
-      </div>
-
     </div>
-    <!-- <span class="other">08:41</span> -->
   </div>
+  <div *ngIf="msg.child">
+    <div class="bubbleWrapper">
+  <div class="inlineContainer">
+    <img class="inlineIcon" src="https://image.flaticon.com/icons/svg/2741/2741111.svg">
+    <div class="otherBubble other"  style="background: #f9f9f9;">
+      <ul class="uk-list uk-list-divider" *ngFor="let child of msg.child">
+        <li (click)="choice(child.id)"><img src="{{child.image}}" style="height: 45px;
+          margin-right: 10px;" > {{child.msg}}</li>
+        <hr>
+        
+    </ul>
+    </div>
+  </div>
+  </div>
+  </div>
+
   <div class="bubbleWrapper" *ngIf="msg.sender==='user'">
     <div class="inlineContainer own">
       <img class="inlineIcon" src="https://image.flaticon.com/icons/svg/366/366296.svg">

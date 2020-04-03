@@ -4,11 +4,17 @@ import { map } from 'rxjs/operators';
 import { pipe } from 'rxjs';
 interface mgsBody{
   msg:string;
-
   image:string;
   type:string;
   cid:string;
   sender:string;
+  child:{
+    msg:string;
+    image:string;
+    type:string;
+    cid:string;
+    sender:string;
+  };
 }
 @Component({
   selector: 'app-chat-ui-pro',
@@ -31,28 +37,23 @@ export class ChatUiProComponent implements OnInit {
     this.api.getWelcomeMsg().subscribe(value=>{
      
       this.MsgData=value;
-     // console.log(this.chatMsgList);
-     this.MsgData.push(this.chatMsgList);
-
-    //  this.chatMsgList.pipe(map(value=>{
-    //    console.log(value);
-    //  })).subscribe();
-
-    for(let i=0;i<this.MsgData.length-1;i++)
-    {
-      // console.log(this.chatMsgList[i]);
-        this.chatMsgList.push({
-        msg:this.MsgData[i].msg,
-        image:this.MsgData[i].image,
-        type:this.MsgData[i].type,
-        cid:this.MsgData[i].cid,
-        sender:"bot",
-      })
-    }
-
-      console.log(this.chatMsgList);
+      
+    // this.MsgData.push(this.chatMsgList);
+     console.log(this.MsgData[0].child.length);
+      this.chatMsgList=this.MsgData;
+     console.log(this.chatMsgList);
+    
       
     })
-  }
+  
+}
+
+choice(ch:any)
+{
+  console.log(ch);
+  this.api.getChoiceReplyPro(ch).subscribe(value=>{
+    console.log(value);
+  })
+}
 
 }
